@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script type="text/javascript" src="js/jquery@1.js"></script>
+  <script type="text/javascript" src="js/bigslide@0.12.js"></script>
+  <script type="text/javascript" src="js/crypto-js.min.js"></script>
+  <script type="text/javascript" src="js/moment@2.js"></script>
+  <script type="text/javascript" src="js/jquery.daterangepicker.min.js"></script>
+  <script type="text/javascript" src="js/js-cookie@2.js"></script>
+  <script type="text/javascript" src="js/noty@3.js"></script>
+  <script type="text/javascript" src="js/tabulator-tables@4.js"></script>
+  <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+  <script src="js/tabulator.js"></script>
+  <link rel="stylesheet" href="css/tabulator.css">
+  <link rel="stylesheet" href="css/tabulator.min.css">
+  <link rel="stylesheet" href="css/noty.min.css">
+  <link rel="stylesheet" href="css/daterangepicker.min.css">
+</head>
+
+<body>
+  <nav id="menu" class="panel" role="navigation">
+    <ul>
+      <li><a id="nav_env" href="#">Environment Setup</a></li>
+      <!-- <li><a id="nav_ini" href="#">Load objects IDs</a></li> -->
+      <li><a id="nav_api" href="#">API Requests</a></li>
+      <!-- <li><a id="nav_scripts" href="#">Prebuilt API Workflows</a></li>
+      <li><a id="nav_instr" href="#">Instructions</a></li> -->
+    </ul>
+  </nav>
+  <div class="content wrap push">
+    <div>
+      <a href="#menu" class="menu-link">&#9776;</a>
+    </div>
+    <div id="env" class="container">
+      <div>
+        <label for="region">Data Residency:</label>
+      <select id="region">
+        <option value="">US</option>
+        <option value="-eu">EU</option>
+      </select>
+      </div>
+      <div>
+      <label for="accountId">Account ID:</label>
+      <input type="text" name="accountId" id="accountId">
+      </div>
+      <div>
+      <label for="apiKeyId">API Setting ID:</label>
+      <input type="text" name="apiKeyId" id="apiKeyId" >
+      </div>
+      <div>
+      <label for="apiKey">API Key:</label>
+      <input type="password" name="apiKey" id="apiKey">
+      </div>
+      <button id="save">Save in cookie</button>
+      <div id="disclaimer">TERMS OF USE: THIS WEB PAGE AND ITS CONTAINING JAVASCRIPT CODE SHOULD NOT BE USED FOR PRODUCTION USE. IT SHOULD ONLY BE USED FOR TESTING AND DEVELOPMENT PURPOSES. LOGMEIN OFFERS NO SUPPORT FOR THIS HOST NOR FOR THE CODE CONTAINED ON THIS PAGE.</div>
+    </div>
+
+    <div id="API" class="container">
+      <!-- <span class="fe">
+        <label for="requestType">Request Type:</label>
+        <select id="requestType"> -->
+          <!-- reordered -->
+          <!-- <option value="getFolders">getFolders</option> -->
+          <!-- <option value="getInactiveChats">getInactiveChats</option>
+          <option data-req="VisitID=" value="getVisit">getVisit</option>
+          <option data-req="VisitID=" value="getPageViews">getPageViews</option>
+          <option data-req="ChatID=" value="getChatMessages">getChatMessages</option> -->
+
+          <!-- <optgroup label="Single Item Data Retrieval"> -->
+            <!-- <option data-req="ChatID=" value="getChat">getChat</option> -->
+            
+            <!-- <option data-req="EmailThreadID=" value="getEmailThread">getEmailThread</option>
+            <option data-req="TicketID=" value="getTicket">getTicket</option>
+            <option data-req="ContactID=" value="getContact">getContact</option>
+            <option data-req="FolderID=" value="getFolder">getFolder</option>
+            <option data-req="DepartmentID=" value="getDepartment">getDepartment</option>
+            <option data-req="OperatorID=" value="getOperator">getOperator</option> -->
+          <!-- </optgroup> -->
+          <!-- <optgroup label="Paged Data Data Retrieval"> -->
+            
+            <!-- <option value="getAllChatMessages" selected="selected">getAllChatMessages</option>
+            <option data-req="FolderID=" value="getInactiveVisits">getInactiveVisits</option>
+            <option value="getAllPageViews">getAllPageViews</option>
+            <option value="getAllInvitations">getAllInvitations</option>
+            <option data-req="FolderID=" value="getConversions">getConversions</option>
+            <option data-req="FolderID=" value="getEmailThreads">getEmailThreads</option>
+            <option data-req="FolderID=" value="getOpenEmailThreads">getOpenEmailThreads</option>
+            <option data-req="FolderID=" value="getClosedEmailThreads">getClosedEmailThreads</option>
+            <option data-req="FolderID=" value="getTickets">getTickets</option>
+            <option data-req="FolderID=" value="getClosedTickets">getClosedTickets</option>
+            <option data-req="FolderID=" value="getOpenTickets">getOpenTickets</option>
+            <option data-req="FolderID=" value="getContacts">getContacts</option>
+            <option data-req="ServiceType=" value="getLoginActivity">getLoginActivity</option> -->
+          <!-- </optgroup>
+          <optgroup label="List Data Retrieval"> -->
+            
+            <!-- <option value="getActiveChats">getActiveChats</option>
+            <option data-req="ChatID=" value="getChatAssignments">getChatAssignments</option> -->
+      
+            <!-- <option value="getActiveVisits">getActiveVisits</option>
+            <option value="getInvitations">getInvitations</option>
+            <option value="getEmails">getEmails</option>
+            <option value="getEmailAttachmentEntries">getEmailAttachmentEntries</option>
+            <option value="getEmailThreadAssignments">getEmailThreadAssignments</option>
+            <option value="getTicketAssignments">getTicketAssignments</option>
+            <option value="getOperatorDiscussions">getOperatorDiscussions</option>
+            <option data-req="FolderType=" value="getSetupItems">getSetupItems</option> -->
+           
+            <!-- <option value="getDepartments">getDepartments</option>
+            <option value="getOperators">getOperators</option>
+            <option value="getOperatorClients">getOperatorClients</option>
+            <option value="getDepartmentOperators">getDepartmentOperators</option>
+            <option value="getOperatorDepartments">getOperatorDepartments</option> -->
+          <!-- </optgroup> -->
+          <!-- <optgroup label="Reports API">
+            <option data-req="FromDate=&ToDate=&ReportType=" value="runReport">runReport</option>
+            <option data-req="ReportID=" value="getReport">getReport</option>
+          </optgroup>
+          <optgroup label="Integration/Provisioning API">
+            <option data-req="SetupFolderID=&FolderType=" value="getSetupFolders">getSetupFolders</option>
+            <option data-req="Name=" value="createSetupFolder">createSetupFolder</option>
+            <option data-req="SetupFolderID=" value="editSetupFolder">editSetupFolder</option>
+            <option data-req="SetupFolderID=" value="deleteSetupFolder">deleteSetupFolder</option>
+            <option value="getChatCannedMessages">getChatCannedMessages</option>
+            <option data-req="Name=" value="createChatCannedMessage">createChatCannedMessage</option>
+            <option data-req="SetupItemID=" value="editChatCannedMessage">editChatCannedMessage</option>
+            <option data-req="SetupItemID=" value="deleteChatCannedMessage">deleteChatCannedMessage</option>
+          </optgroup>
+          <optgroup label="Integration/Workflow API">
+            <option data-req="ChatID=" value="assignChat">assignChat</option>
+            <option value="getEstimatedWaitTime">getEstimatedWaitTime</option>
+            <option data-req="Enable=" value="enableAcdForChat">enableAcdForChat</option>
+            <option value="getOperatorActiveChatCount">getOperatorActiveChatCount</option>
+            <option data-req="ServiceTypeID=" value="getOperatorAvailability">getOperatorAvailability</option>
+            <option data-req="OperatorID=" value="setOperatorAvailability">setOperatorAvailability</option>
+            <option data-req="TemplateOperatorID=" value="createOperatorFromTemplate">createOperatorFromTemplate</option>
+            <option data-req="OperatorID=" value="deleteOperator">deleteOperator</option>
+            <option data-req="OperatorID=" value="editOperator">editOperator</option>
+            <option data-req="OperatorID=" value="operatorLoginControl">operatorLoginControl</option>
+            <option value="getCustomOperatorStatuses">getCustomOperatorStatuses</option>
+          </optgroup> -->
+        <!-- </select> -->
+      <!-- </span> -->
+      <!-- <span class="fe" style="display:none">
+        <label for="requestVersion">Version:</label>
+        <select id="requestVersion">
+          <option value="v1" selected>v1</option>
+          <option value="v2">v2</option>
+        </select>
+      </span> -->
+      <span class="fe">
+        <label for="folder">Folder</label>
+        <select id="folder">
+          <option value="" selected>Please select</option>
+        </select>
+      </span>
+      <span class="fe">
+        <label for="required_parameters">Required Parameters</label>
+        <input type="text" name="required_parameters" id="required_parameters" value="" />
+      </span>
+      <span class="fe">
+          <input id="allfolders" type="checkbox" />
+          <label for="allfolders">All Folders</label>
+        </span>
+      <span class="fe">
+        <label for="daterange">Date/Time Range:</label>
+        <input type="text" name="daterange" id="daterange" />
+      </span>
+      <span class="fe">
+        <button id="date_picker">Date Range</button>
+      </span>
+      <!-- <span class="fe">
+        <input id="autonext" type="checkbox" />
+        <label for="autonext">Auto-Next Query</label>
+      </span>
+      <span class="fe"> -->
+      <button id="go">Perform API Request</button>
+      </span><br>
+      <!-- <span class="fe">
+      <a id="link">Open Last Request as Raw</a>
+      </span> -->
+      <!-- mscala: corrected spelling of loadNext -->
+      <!-- <span class="fe">
+      <button id="next">Next</button>
+    </span> -->
+      <span class="fe">
+        <label>Filter by Field: </label>
+        <select id="filter-field">
+          <option></option>
+          <!-- <option value="name">Name</option> -->
+        </select>
+      </span>
+      <span class="fe">
+        <label>Type: </label>
+        <select id="filter-type">
+          <option value="=">=</option>
+          <option value="<">&lt;</option>
+          <option value="<=">&lt;=</option>
+          <option value=">">&gt;</option>
+          <option value=">=">&gt;=</option>
+          <option value="!=">!=</option>
+          <option value="like" selected>like</option>
+        </select>
+      </span>
+      <span class="fe">
+        <label>Value:</label>
+        <input id="filter-value" placeholder="value to filter" type="text">
+      </span>
+      <span class="fe">
+      <button id="filter-clear">Clear Filter</button>
+    </span>
+      <span class="fe">
+        <label>Group by Field: </label>
+        <select id="group-field">
+          <option></option>
+          <!-- <option value="name">Name</option> -->
+        </select>
+      </span>
+      <span class="fe">
+        <button id="downloadcsv">Download .csv</button>
+      </span>
+      <span class="fe">
+        <button id="downloadxlsx">Download .xlsx</button>
+      </span>
+      <span class="fe" style="vertical-align: text-top;">
+        <img id="loading" src="pics/gif-load.gif">
+    </span>
+      <div id="tabulator"></div>      
+  </div>
+  <div id="chatdetails">
+    <span class="fe">
+        <button id="prevchat">Prev Chat</button>
+    </span>
+    <span class="fe">
+      <button id="nextchat">Next Chat</button>
+    </span>
+    <span class="fe">
+      <button id="downloadall">Download .xlsx</button>
+    </span>
+    <span class="fe">
+      <button id="closechat">X</button>
+    </span>
+    <label>Visitor ID: </label>
+    <span class="fe bigger" id="VisitorID"></span>
+    <label>Visit ID: </label>
+    <span class="fe bigger" id="VisitID"></span>
+    <label>Chat ID: </label>
+    <span class="fe bigger" id="ChatID"></span><br>
+      Visit Details:<br>
+      <div id="floatingdata1"></div>
+      Chat Metadata Details:<br>
+      <div id="floatingdata2"></div>
+      Chat Messages:<br>
+      <div id="floatingdata3"></div>
+      Chat Assignments:<br>
+      <div id="floatingdata4"></div>
+      Browser Session Page Views: <br>
+      <div id="floatingdata5"></div>
+  </div>  
+    <div id="logo"></div>    
+ </body>
+</html>

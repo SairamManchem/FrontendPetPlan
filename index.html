@@ -1,0 +1,118 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPlanInsuranceReportingDashboard</title>
+    <script type="text/javascript" src="js/jquery@1.js"></script>
+    <script type="text/javascript" src="js/bigslide@0.12.js"></script>
+    <script type="text/javascript" src="js/crypto-js.min.js"></script>
+    <script type="text/javascript" src="js/moment@2.js"></script>
+    <script type="text/javascript" src="js/jquery.daterangepicker.min.js"></script>
+    <script type="text/javascript" src="js/js-cookie@2.js"></script>
+    <script type="text/javascript" src="js/noty@3.js"></script>
+    <script type="text/javascript" src="js/tabulator-tables@4.js"></script>
+    <script type="text/javascript" src="js/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="css/tabulator.css">
+    <link rel="stylesheet" href="css/tabulator.min.css">
+    <link rel="stylesheet" href="css/daterangepicker.min.css">
+    <link rel="stylesheet" href="css/noty.min.css">
+
+
+</head>
+
+<body>
+    <div class="content wrap push">
+        <div>
+            <div id="API" class="container">
+
+                <span class="fe">
+          <label for="Kb">KB</label>
+          <select id="kb">
+            <option></option>
+            <option value="1580187682" >Brochureware</option>
+            <option value="1527601882" >English</option>
+            <option value="1674582382" >Sandbox</option>
+            <option value="1774053512" >Service</option>
+          </select>
+        </span>
+
+                <span class="fe">
+          <label for="daterange">Date Range:</label>
+          <input type="text" name="fromDate" id="fromDate" disabled="true"/>
+          <input type="text" name="toDate" id="toDate" disabled="true" />
+        </span>
+
+                <span class="fe">
+          <button id="date_picker">Date Range</button>
+        </span>
+                <button id="go">Perform API Request</button>
+                </span>
+
+                <span class="fe">
+                    <button id="logout">LogOut</button>
+                    <img id="loading_logo" src="pics/petplan_logo.svg">
+
+            </span>
+
+
+            </div>
+
+            <div id="API2" class="container2">
+                <select id="filter-field">
+            <option></option>
+            <option value="domain">Domain</option>
+            <option value="url">URL</option>
+            <option value="startDateTime">Date</option>
+            <option value="endDateTime">Time</option>
+            <option value="id">Interaction Id</option>
+            <option value="channeledCount">ChanneledCount</option>
+            <option value="channeledToBoldCount">ChanneledToBoldCount</option>
+            <option value="asyncEscalatedCount">ChanneledToFormCount</option>
+            <option value="negativeFeedbackCount">NegativeFeedBackCount</option>
+            <option value="positiveFeedbackCount">PositiveFeedbackCount</option>
+            <option value="device">Device</option>
+            <option value="browser">Browser</option>
+            <option value="channelType">ChannelType</option>
+            <option value="channelName">ChannelName</option>
+            <option value="engagementId">EngagementId</option>
+          </select>
+
+                <select id="filter-type">
+            <option value="=">=</option>
+            <option value="<"><</option>
+            <option value="<="><=</option>
+            <option value=">">></option>
+            <option value=">=">>=</option>
+            <option value="!=">!=</option>
+            <option value="like">like</option>
+          </select>
+
+                <input id="filter-value" type="text" placeholder="value to filter">
+
+                <button id="filter-clear">Clear Filter</button>
+
+            </div>
+
+        </div>
+        <div id="API3" class="container3">
+            <!-- <span class="fe"> -->
+            <button id="downloadxlsx">Download</button>
+
+            <!-- </span> -->
+        </div>
+        <div id="loading-div">
+            <img id="loading" src="pics/gif-load2.gif">
+        </div>
+
+        <span>
+        <div id="tabulator"></div>
+    </div>
+          </span>
+        <script src="index.js"></script>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</body>
+
+</html>
