@@ -18,17 +18,15 @@
     <link rel="stylesheet" href="css/tabulator.min.css">
     <link rel="stylesheet" href="css/daterangepicker.min.css">
     <link rel="stylesheet" href="css/noty.min.css">
-    <link rel="stylesheet" type="text/css" href="css/sidbar.css">
-
 
 
 </head>
 
 <body>
-
     <div class="content wrap push">
         <div>
             <div id="API" class="container">
+
                 <span class="fe">
           <label for="Kb">KB</label>
           <select id="kb">
@@ -64,21 +62,22 @@
             <div id="API2" class="container2">
                 <select id="filter-field">
             <option></option>
-            <option value="domain">Domain</option>
-            <option value="url">URL</option>
-            <option value="startDateTime">Date</option>
-            <option value="endDateTime">Time</option>
-            <option value="id">Interactions in engagement</option>
-            <!-- <option value="channeledCount">ChanneledCount</option>
+            <!-- <option value="domain">Domain</option>
+            <option value="url">URL</option>-->
+            <option value="id">EngagementId</option>
+            <option value="touchpoint">touchpoint</option>
+            <option value="startDateTime">StartDateTime</option>
+            <option value="endDateTime">EndDateTime</option>
+            <option value="channeledCount">ChanneledCount</option>
             <option value="channeledToBoldCount">ChanneledToBoldCount</option>
-            <option value="asyncEscalatedCount">ChanneledToFormCount</option> -->
+            <option value="asyncEscalatedCount">ChanneledToFormCount</option>
             <option value="negativeFeedbackCount">NegativeFeedBackCount</option>
             <option value="positiveFeedbackCount">PositiveFeedbackCount</option>
-            <option value="device">Device</option>
-            <option value="browser">Browser</option>
-            <option value="channelType">ChannelType</option>
+            <!-- <option value="device">Device</option>
+            <option value="browser">Browser</option> -->
+            <!-- <option value="channelType">ChannelType</option>
             <option value="channelName">ChannelName</option>
-            <option value="engagementId">EngagementId</option>
+            <option value="engagementId">EngagementId</option> -->
           </select>
 
                 <select id="filter-type">
@@ -94,8 +93,8 @@
                 <input id="filter-value" type="text" placeholder="value to filter">
 
                 <button id="filter-clear">Clear Filter</button>
-                <button id="Engagments-report">Switch To Engagements Report</button>
-                <button id="Main-page-Change">Switch To Main</button>
+                <button id="interactions-report">Switch To Interactions Report</button>
+                <button id="Main-page">Switch To Main</button>
             </div>
 
         </div>
@@ -113,7 +112,7 @@
         <div id="tabulator"></div>
     </div>
           </span>
-        <script src="index.js"></script>
+        <script src="engagements.js"></script>
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 </body>

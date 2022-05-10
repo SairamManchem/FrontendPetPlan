@@ -7,65 +7,51 @@ var table = new Tabulator("#tabulator", {
     paginationCounter: "rows",
     placeholder: "No Data Set",
     columns: [
-        { title: "Domain", field: "domain" },
-        { title: "URL", field: "url" },
+        { title: "Engagement Id", field: "id" },
+        { title: "TouchPoint", field: "touchpoint" },
         {
-            title: "Date",
-            field: "dateTime",
-            formatter: function(cell, formatterParams) {
-                var value = cell.getValue();
-                return value.split('T')[0];
-            },
-            visible: true,
-            download: true,
-            titleDownload: "Date&time Range"
+            title: "StartDateTime",
+            field: "startDateTime",
+            // formatter: function(cell, formatterParams) {
+            //     var value = cell.getValue();
+            //     return value.split('T')[0];
+            // },
+            // visible: true,
+            // download: true,
+            // titleDownload: "Date&time Range"
         },
         {
-            title: "Time",
-            field: "dateTime",
-            formatter: function(cell, formatterParams) {
-                var value = cell.getValue();
-                return value.split('T')[1];
-            },
-            visible: true,
-            download: false
+            title: "EndDateTime",
+            field: "endDateTime",
+            // formatter: function(cell, formatterParams) {
+            //     var value = cell.getValue();
+            //     return value.split('T')[1];
+            // },
+            // visible: true,
+            // download: false
 
         },
-        { title: "Interactions in engagement", field: "interactionId" },
-        // { title: "Channelled count", field: "channeledCount", hozAlign: "right", sorter: "number" },
-        // { title: "Channelled to bold", field: "channeledToBoldCount" },
-        // { title: "Channelled to form", field: "channeledToFormCount", hozAlign: "center" },
+        { title: "Channelled count", field: "channeledCount", hozAlign: "right", sorter: "number" },
+        { title: "Channelled to bold", field: "channeledToBoldCount" },
+        { title: "Channelled to form", field: "channeledToFormCount", hozAlign: "center" },
         { title: "Negative feedback count", field: "negativeFeedbackCount" },
-        { title: "Positive feedback count", field: "positiveFeedbackCount" },
-        { title: "Device", field: "device", hozAlign: "right", sorter: "number" },
-        { title: "Browser", field: "browser" },
-        { title: "Channeltype", field: "channelType", hozAlign: "center" },
-        { title: "Channelname", field: "channelName" },
-        { title: "Engagement id", field: "engagementId" },
+        { title: "Positive feedback count", field: "positiveFeedbackCount" }
     ],
 });
+document.getElementById("interactions-report").addEventListener("click", function() {
+    document.location.href = "index.html";
+});
 
-
-
-function getTimeValue(dateTime) {
-    console.log('dateTime', dateTime)
-    return dateTime.split('T')[1];
-}
-
-function getDateValue(dateTime) {
-    return dateTime.split('T')[0];
-}
-
+document.getElementById("Main-page").addEventListener("click", function() {
+    document.location.href = "main.html";
+});
 
 //Define variables for input elements
 var fieldEl = document.getElementById("filter-field");
 var typeEl = document.getElementById("filter-type");
 var valueEl = document.getElementById("filter-value");
 
-//Custom filter example
-function customFilter(data) {
-    return data.car && data.rating < 3;
-}
+
 
 //Trigger setFilter function with correct parameters
 function updateFilter() {
@@ -97,13 +83,6 @@ document.getElementById("filter-clear").addEventListener("click", function() {
 
     table.clearFilter();
 });
-document.getElementById("Engagments-report").addEventListener("click", function() {
-    document.location.href = "Engagements.html";
-});
-
-document.getElementById("Main-page-Change").addEventListener("click", function() {
-    document.location.href = "main.html";
-});
 
 document.getElementById("go").addEventListener("click", function() {
     var kbValue = document.getElementById("kb").value;
@@ -113,7 +92,7 @@ document.getElementById("go").addEventListener("click", function() {
         method: 'POST',
         // url: 'https://petplaninsurancenode.onrender.com/reportPetPlan',
         url: 'https://petplaninsurancenodeserver.onrender.com/reportPetPlan',
-        // url: 'http://localhost:3001/reportPetPlan',
+        // url: 'http://localhost:3001/reportPetPlanEngagements',
         params: {
             kbValue: kbValue,
             fromDate: fromDate.split('T')[0],

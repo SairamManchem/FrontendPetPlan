@@ -1,0 +1,45 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- nanorep floating widget -->
+    <script>
+        ! function(t, e, o, c, n, a) {
+            var s = this.nanorep = this.nanorep || {};
+            s = s[e] = s[e] || {}, s.apiHost = a, s.host = n, s.path = c, s.account = t, s.protocol = "https:" === location.protocol ? "https:" : "http:", s.on = s.on || function() {
+                s._calls = s._calls || [], s._calls.push([].slice.call(arguments))
+            };
+            var p = s.protocol + "//" + n + c + o + "?account=" + t,
+                l = document.createElement("script");
+            l.async = l.defer = !0, l.setAttribute("src", p), document.getElementsByTagName("head")[0].appendChild(l)
+        }("reachlocal", "floatingWidget", "floating-widget.js", "/web/", "reachlocal.nanorep.co");
+    </script>
+
+
+
+    <script>
+        let advertiserId = 1;
+        let visitId = "456ab638-9675-4992-a0ba-402d9125b141";
+
+        nanorep.floatingWidget.on({
+            init: function() {
+                this.setConfigId('1050234521');
+                this.setInitializedEntities({
+                    advertiserId: advertiserId,
+                    visitId: visitId,
+                })
+                this.setContext({
+                    "advertiser": "Advertiser Client 2"
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

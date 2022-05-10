@@ -4,7 +4,8 @@ function validate() {
 
     const options = {
         method: 'POST',
-        url: 'http://localhost:3001/authenticate',
+        // url: 'https://petplaninsurancenode.onrender.com/authenticate',
+        url: 'https://petplaninsurancenodeserver.onrender.com/authenticate',
         params: {
             username: username,
             password: password
@@ -14,7 +15,7 @@ function validate() {
 
         axios.request(options, { crossdomain: true }).then(response => {
             if (response.data === true) {
-                document.location.href = "index.html";
+                document.location.href = "main.html";
             } else {
                 alert("The Entered Username and Password is Wrong")
             }
